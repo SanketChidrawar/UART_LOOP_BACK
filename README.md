@@ -1,28 +1,33 @@
 # UART_LOOP_BACK
+UART Loopback Test for STM32
+This project demonstrates a simple method to verify the UART loopback functionality on an STM32 microcontroller. It checks whether the transmit (Tx) and receive (Rx) connections are properly established by sending and receiving a test byte.
 
-UART Loopback Test Code for STM32
-This project verifies the UART loopback functionality by checking if the transmit (Tx) and receive (Rx) paths are correctly established.
+Objective
+To validate the UART communication path by transmitting a byte through the Tx pin and checking if the same byte is received on the Rx pin in a loopback configuration.
 
-Purpose
-The code ensures that data transmitted through the Tx pin can be correctly received by the Rx pin in a loopback configuration. It helps validate the UART hardware and connections within the system.
+Pin Configuration
+Tx (Transmit): PA2
+Rx (Receive): PA3
+Setup Instructions
+Hardware Connection:
 
-Pin Details
-Tx Pin: PA2
-Rx Pin: PA3
-How to Use
-Connect the Pins:
-Short the Tx (PA2) pin and Rx (PA3) pin.
-Load the Code:
+Connect Tx (PA2) to Rx (PA3) directly by using a jumper wire or shortening the pins.
+Running the Test:
+
 Open the project in STM32CubeIDE.
-Run the project in Debug Mode.
-Resume Execution:
-After entering debug mode, click Resume to start the code execution.
-Check Data:
-Use the Live Expressions view in STM32CubeIDE to monitor the variable rx_data.
-The code sends one byte, "H", through the Tx pin.
-If the loopback is successful, the same byte ("H") should be received and stored in rx_data.
+Compile and run the code in Debug Mode.
+Execution:
+
+In debug mode, click Resume to continue program execution.
+The code will transmit a single byte ("H") through the Tx pin.
+
+Verification:
+Open the Live Expressions window in STM32CubeIDE.
+Monitor the variable rx_data.
+If the test is successful, you should see the byte "H" received and stored in rx_data.
+
 Expected Outcome
-If "H" is observed in rx_data, the UART loopback is functioning correctly, indicating the connection between Tx and Rx is established.
+If the character "H" appears in rx_data, the UART loopback is confirmed to be working correctly, indicating a successful connection between the Tx and Rx pins.
 Notes
-Ensure no external devices are connected to the Tx and Rx pins during the loopback test.
-Use jumper wires to create the physical connection between the pins if needed.
+Make sure no external devices are connected to the Tx and Rx pins during this test.
+Use this loopback test only for debugging and validation purposes.
